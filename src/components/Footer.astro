@@ -1,0 +1,75 @@
+---
+const year = new Date().getFullYear();
+
+const FACEBOOK_URL = '[DA COMPILARE]';
+const INSTAGRAM_URL = '[DA COMPILARE]';
+---
+
+<footer class="bg-gray-900 text-gray-300 mt-16">
+  <div class="max-w-6xl mx-auto px-4 py-12">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <!-- Brand column -->
+      <div>
+        <p class="text-2xl font-black text-white tracking-tight mb-2">GIO.I.A</p>
+        <p class="text-sm text-gray-400 leading-relaxed">
+          Associazione di Promozione Sociale per l'inclusione lavorativa e le
+          attività socio-ricreative.
+        </p>
+      </div>
+
+      <!-- Navigation column -->
+      <nav aria-label="Link rapidi footer">
+        <p class="font-bold text-white mb-3 uppercase text-xs tracking-wider">Esplora</p>
+        <ul class="space-y-2 text-sm">
+          <li><a href="/" class="hover:text-gioia-yellow transition-colors">Home</a></li>
+          <li><a href="/chi-siamo" class="hover:text-gioia-yellow transition-colors">Chi Siamo</a></li>
+          <li><a href="/attivita" class="hover:text-gioia-yellow transition-colors">Attività</a></li>
+          <li><a href="/blog" class="hover:text-gioia-yellow transition-colors">Blog</a></li>
+          <li><a href="/contatti" class="hover:text-gioia-yellow transition-colors">Contatti</a></li>
+          <li><a href="/donazioni" class="hover:text-gioia-yellow transition-colors">Donazioni</a></li>
+        </ul>
+      </nav>
+
+      <!-- Social & legal column -->
+      <div>
+        <p class="font-bold text-white mb-3 uppercase text-xs tracking-wider">Seguici</p>
+        <div class="flex gap-4 mb-6">
+          {FACEBOOK_URL !== '[DA COMPILARE]' && (
+            <a
+              href={FACEBOOK_URL}
+              class="hover:text-gioia-yellow transition-colors"
+              aria-label="Pagina Facebook di GIO.I.A"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Facebook
+            </a>
+          )}
+          {INSTAGRAM_URL !== '[DA COMPILARE]' && (
+            <a
+              href={INSTAGRAM_URL}
+              class="hover:text-gioia-yellow transition-colors"
+              aria-label="Profilo Instagram di GIO.I.A"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Instagram
+            </a>
+          )}
+          {FACEBOOK_URL === '[DA COMPILARE]' && INSTAGRAM_URL === '[DA COMPILARE]' && (
+            <p class="text-xs text-gray-500 italic">[DA COMPILARE]</p>
+          )}
+        </div>
+        <div class="text-xs text-gray-500 space-y-1">
+          <p>C.F.: <span>[DA COMPILARE]</span></p>
+          <p>P.IVA: <span>[DA COMPILARE]</span></p>
+          <a href="/privacy" class="hover:text-gray-300 transition-colors">Privacy Policy</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="border-t border-gray-700 mt-10 pt-6 text-center text-xs text-gray-500">
+      <p>© {year} GIO.I.A – Associazione di Promozione Sociale. Tutti i diritti riservati.</p>
+    </div>
+  </div>
+</footer>

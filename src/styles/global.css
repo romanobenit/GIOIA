@@ -1,0 +1,55 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply font-sans text-gray-800 bg-white;
+  }
+
+  h1 {
+    @apply text-3xl font-extrabold md:text-4xl lg:text-5xl;
+  }
+
+  h2 {
+    @apply text-2xl font-bold md:text-3xl;
+  }
+
+  h3 {
+    @apply text-xl font-semibold md:text-2xl;
+  }
+
+  a {
+    @apply transition-colors duration-200;
+  }
+
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-gioia-yellow rounded;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-block bg-gioia-yellow hover:bg-gioia-yellow-dark text-white font-bold py-3 px-6 rounded-full transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gioia-yellow;
+  }
+
+  .btn-secondary {
+    @apply inline-block bg-gioia-green hover:bg-emerald-700 text-white font-bold py-3 px-6 rounded-full transition-colors duration-200;
+  }
+
+  .btn-outline {
+    @apply inline-block border-2 border-gioia-yellow text-gioia-yellow-dark hover:bg-gioia-yellow hover:text-white font-bold py-3 px-6 rounded-full transition-colors duration-200;
+  }
+
+  .section {
+    @apply py-16 px-4 max-w-6xl mx-auto;
+  }
+
+  .card {
+    @apply bg-white rounded-2xl shadow-md hover:shadow-lg transition-shadow duration-200 overflow-hidden;
+  }
+}

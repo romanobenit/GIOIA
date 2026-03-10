@@ -1,0 +1,105 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Chi Siamo" description="Scopri la storia, la missione e i valori di GIO.I.A, APS per l'inclusione e il benessere.">
+  <!-- Page hero -->
+  <section class="bg-gradient-to-br from-amber-50 to-white py-16 px-4">
+    <div class="max-w-3xl mx-auto text-center">
+      <h1 class="text-gioia-yellow-dark mb-4">Chi Siamo</h1>
+      <p class="text-xl text-gray-600 leading-relaxed">
+        Un'associazione nata dall'entusiasmo e dalla convinzione che ogni persona
+        meriti la possibilità di esprimere il proprio potenziale.
+      </p>
+    </div>
+  </section>
+
+  <!-- Mission -->
+  <section class="section">
+    <div class="grid md:grid-cols-2 gap-12 items-center">
+      <div>
+        <h2 class="text-gray-900 mb-4">La nostra missione</h2>
+        <p class="text-gray-600 leading-relaxed mb-4">
+          GIO.I.A è un'Associazione di Promozione Sociale (APS) che opera a favore
+          di adulti con disabilità intellettiva lieve, con l'obiettivo di promuovere
+          la loro inclusione nel mondo del lavoro e nella vita sociale.
+        </p>
+        <p class="text-gray-600 leading-relaxed mb-4">
+          Attraverso percorsi individualizzati, attività di gruppo e collaborazioni
+          con realtà del territorio, costruiamo opportunità concrete e relazioni
+          autentiche.
+        </p>
+        <p class="text-gray-600 leading-relaxed">
+          Il nome stesso — GIO.I.A — riflette il valore che guida ogni nostra
+          azione: la gioia di fare insieme, di crescere insieme, di vivere pienamente.
+        </p>
+      </div>
+      <div class="grid grid-cols-2 gap-4">
+        {[
+          { icon: '🤝', label: 'Inclusione' },
+          { icon: '💡', label: 'Autonomia' },
+          { icon: '🌱', label: 'Crescita' },
+          { icon: '💛', label: 'Gioia' },
+        ].map((value) => (
+          <div class="bg-amber-50 rounded-2xl p-6 text-center">
+            <p class="text-4xl mb-2" aria-hidden="true">{value.icon}</p>
+            <p class="font-bold text-gray-800">{value.label}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- History -->
+  <section class="bg-gray-50 py-16 px-4">
+    <div class="max-w-3xl mx-auto">
+      <h2 class="text-gray-900 mb-6 text-center">La nostra storia</h2>
+      <div class="prose prose-gray max-w-none space-y-4 text-gray-600 leading-relaxed">
+        <p>
+          GIO.I.A nasce dalla volontà di un gruppo di persone — familiari, volontari
+          e professionisti — che credono nel valore dell'inclusione come processo
+          culturale e sociale, non solo assistenziale.
+        </p>
+        <p>
+          Nel tempo abbiamo costruito una rete di relazioni con aziende, enti
+          pubblici e altre realtà del terzo settore, dando vita a percorsi che
+          uniscono formazione, lavoro e socialità.
+        </p>
+        <p>
+          Oggi GIO.I.A è un punto di riferimento per le famiglie e per le persone
+          che vogliamo accompagnare verso una vita più autonoma e soddisfacente.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team -->
+  <section class="section">
+    <h2 class="text-gray-900 mb-4 text-center">Il nostro team</h2>
+    <p class="text-center text-gray-500 italic mb-10">[DA COMPILARE – aggiungere foto e descrizioni dei volontari/collaboratori]</p>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+      {Array.from({ length: 3 }).map((_, i) => (
+        <div class="card p-6 text-center">
+          <div class="w-20 h-20 rounded-full bg-amber-100 mx-auto mb-4 flex items-center justify-center text-3xl" aria-hidden="true">
+            👤
+          </div>
+          <p class="font-bold text-gray-900">[DA COMPILARE]</p>
+          <p class="text-sm text-gioia-green font-semibold mt-1">[Ruolo]</p>
+          <p class="text-sm text-gray-500 mt-2">[Breve descrizione]</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="bg-emerald-50 py-16 px-4 text-center">
+    <div class="max-w-2xl mx-auto">
+      <h2 class="text-gray-900 mb-4">Vuoi far parte di GIO.I.A?</h2>
+      <p class="text-gray-600 mb-8 leading-relaxed">
+        Cerchiamo volontari, collaboratori e sostenitori che condividano i nostri
+        valori. Scrivici per scoprire come contribuire.
+      </p>
+      <a href="/contatti" class="btn-secondary">Contattaci</a>
+    </div>
+  </section>
+</Layout>
