@@ -1,0 +1,48 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import BlogCard from '../../components/BlogCard.astro';
+import { getCollection } from 'astro:content';
+
+const allPosts = await getCollection('blog');
+const posts = allPosts.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+
+const categories = ['Tutte', 'Notizie', 'Eventi', 'Storie'] as const;
+---
+
+<Layout title="Blog" description="Notizie, eventi e storie di GIO.I.A. Resta aggiornato su tutto quello che facciamo.">
+  <!-- Hero -->
+  <section class="bg-gradient-to-br from-amber-50 to-white py-16 px-4">
+    <div class="max-w-3xl mx-auto text-center">
+      <h1 class="text-gioia-yellow-dark mb-4">Blog & Notizie</h1>
+      <p class="text-xl text-gray-600">
+        Storie, aggiornamenti ed eventi dalla nostra comunità.
+      </p>
+    </div>
+  </section>
+
+  <!-- Posts grid -->
+  <section class="section">
+    {posts.length === 0
+      ? (
+        <div class="text-center py-16 text-gray-400">
+          <p class="text-4xl mb-4" aria-hidden="true">📝</p>
+          <p class="text-lg">Nessun articolo pubblicato ancora. Torna presto!</p>
+        </div>
+      )
+      : (
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {posts.map((post) => (
+            <BlogCard
+              title={post.data.title}
+              date={post.data.date}
+              excerpt={post.data.excerpt}
+              slug={post.slug}
+              coverImage={post.data.coverImage}
+              category={post.data.category}
+            />
+          ))}
+        </div>
+      )
+    }
+  </section>
+</Layout>

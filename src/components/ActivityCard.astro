@@ -1,0 +1,31 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  icon: string;
+  category: 'lavorativa' | 'ricreativa';
+}
+
+const { title, description, icon, category } = Astro.props;
+
+const badgeStyles = {
+  lavorativa: 'bg-amber-100 text-amber-800',
+  ricreativa: 'bg-emerald-100 text-emerald-800',
+};
+
+const badgeLabel = {
+  lavorativa: 'Inclusione lavorativa',
+  ricreativa: 'Socio-ricreativa',
+};
+---
+
+<article class="card p-6 flex flex-col gap-4">
+  <div class="text-4xl" role="img" aria-hidden="true">{icon}</div>
+  <div>
+    <span class:list={['text-xs font-bold uppercase tracking-wide px-2 py-1 rounded-full', badgeStyles[category]]}>
+      {badgeLabel[category]}
+    </span>
+  </div>
+  <h3 class="font-bold text-gray-900">{title}</h3>
+  <p class="text-gray-600 text-sm leading-relaxed">{description}</p>
+</article>

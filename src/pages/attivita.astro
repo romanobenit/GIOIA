@@ -1,0 +1,121 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ActivityCard from '../components/ActivityCard.astro';
+
+const activitiesLavorativa = [
+  {
+    title: 'Tirocini formativi',
+    description:
+      'Percorsi personalizzati in aziende partner del territorio per acquisire competenze pratiche e abitudini lavorative in un contesto reale e supportato.',
+    icon: '🏢',
+  },
+  {
+    title: 'Laboratori di orientamento',
+    description:
+      'Sessioni di gruppo per esplorare interessi, scoprire punti di forza e costruire un progetto professionale su misura.',
+    icon: '🧭',
+  },
+  {
+    title: 'Formazione pratica',
+    description:
+      'Workshop su competenze trasversali: puntualità, comunicazione, gestione del tempo, utilizzo base del computer.',
+    icon: '📚',
+  },
+  {
+    title: 'Accompagnamento al lavoro',
+    description:
+      'Supporto individuale nelle prime fasi lavorative: affiancamento in azienda, monitoraggio e mediazione con i datori di lavoro.',
+    icon: '🤝',
+  },
+];
+
+const activitiesRicreativa = [
+  {
+    title: 'Uscite sociali',
+    description:
+      'Gite, visite culturali, cinema, sagre e passeggiate per esplorare il territorio e vivere esperienze in gruppo.',
+    icon: '🚌',
+  },
+  {
+    title: 'Laboratori creativi',
+    description:
+      'Attività artistiche, musicali e manuali che stimolano la creatività e favoriscono l\'espressione personale.',
+    icon: '🎨',
+  },
+  {
+    title: 'Sport e movimento',
+    description:
+      'Attività fisiche adattate, giochi di squadra e avvicinamento allo sport per il benessere psicofisico.',
+    icon: '⚽',
+  },
+  {
+    title: 'Feste ed eventi',
+    description:
+      'Momenti di celebrazione, ricorrenze e incontri comunitari per rafforzare i legami e condividere la gioia.',
+    icon: '🎉',
+  },
+];
+---
+
+<Layout title="Attività" description="Scopri tutte le attività di GIO.I.A: percorsi lavorativi, laboratori creativi, sport ed eventi sociali.">
+  <!-- Hero -->
+  <section class="bg-gradient-to-br from-amber-50 to-emerald-50 py-16 px-4">
+    <div class="max-w-3xl mx-auto text-center">
+      <h1 class="text-gioia-yellow-dark mb-4">Le nostre attività</h1>
+      <p class="text-xl text-gray-600 leading-relaxed">
+        Due aree di intervento, un unico obiettivo: costruire opportunità di
+        crescita, autonomia e felicità per ogni persona.
+      </p>
+    </div>
+  </section>
+
+  <!-- Workforce inclusion -->
+  <section class="section">
+    <div class="flex items-center gap-3 mb-4">
+      <span class="text-3xl" aria-hidden="true">💼</span>
+      <h2 class="text-gray-900">Inclusione lavorativa</h2>
+    </div>
+    <p class="text-gray-600 mb-8 max-w-2xl leading-relaxed">
+      Crediamo che il lavoro sia un potente strumento di autonomia e dignità.
+      Offriamo percorsi concreti per avvicinarsi al mondo del lavoro, con il
+      giusto supporto in ogni fase.
+    </p>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      {activitiesLavorativa.map((a) => (
+        <ActivityCard title={a.title} description={a.description} icon={a.icon} category="lavorativa" />
+      ))}
+    </div>
+  </section>
+
+  <!-- Socio-recreational -->
+  <section class="bg-gray-50 py-16 px-4">
+    <div class="max-w-6xl mx-auto">
+      <div class="flex items-center gap-3 mb-4">
+        <span class="text-3xl" aria-hidden="true">🌈</span>
+        <h2 class="text-gray-900">Attività socio-ricreative</h2>
+      </div>
+      <p class="text-gray-600 mb-8 max-w-2xl leading-relaxed">
+        La vita è fatta anche di svago, cultura e amicizia. Le nostre attività
+        ricreative sono spazi di libertà, relazione e benessere condiviso.
+      </p>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {activitiesRicreativa.map((a) => (
+          <ActivityCard title={a.title} description={a.description} icon={a.icon} category="ricreativa" />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section text-center">
+    <h2 class="text-gray-900 mb-4">Vuoi partecipare?</h2>
+    <p class="text-gray-600 mb-8 max-w-xl mx-auto leading-relaxed">
+      Contattaci per sapere come iscriversi alle attività o per ricevere
+      informazioni personalizzate per te o per la tua famiglia.
+    </p>
+    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+      <a href="/contatti" class="btn-primary">Contattaci</a>
+      <a href="/donazioni" class="btn-outline">Sostienici</a>
+    </div>
+  </section>
+</Layout>

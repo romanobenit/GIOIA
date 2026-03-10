@@ -1,0 +1,53 @@
+---
+interface Props {
+  title: string;
+  date: Date;
+  excerpt: string;
+  slug: string;
+  coverImage: string;
+  category: string;
+}
+
+const { title, date, excerpt, slug, coverImage, category } = Astro.props;
+
+const formattedDate = date.toLocaleDateString('it-IT', {
+  day: 'numeric',
+  month: 'long',
+  year: 'numeric',
+});
+
+const categoryColors: Record<string, string> = {
+  Notizie: 'bg-blue-100 text-blue-800',
+  Eventi: 'bg-purple-100 text-purple-800',
+  Storie: 'bg-rose-100 text-rose-800',
+};
+---
+
+<article class="card group">
+  <a href={`/blog/${slug}`} class="block" aria-label={`Leggi: ${title}`}>
+    <div class="relative overflow-hidden h-48 bg-amber-50">
+      <img
+        src={coverImage}
+        alt={`Immagine di copertina: ${title}`}
+        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+        loading="lazy"
+        onerror="this.src='/images/blog/placeholder.svg'"
+      />
+    </div>
+    <div class="p-5">
+      <div class="flex items-center gap-2 mb-3">
+        <span class:list={['text-xs font-bold uppercase tracking-wide px-2 py-1 rounded-full', categoryColors[category] ?? 'bg-gray-100 text-gray-700']}>
+          {category}
+        </span>
+        <time datetime={date.toISOString()} class="text-xs text-gray-500">
+          {formattedDate}
+        </time>
+      </div>
+      <h3 class="font-bold text-gray-900 mb-2 group-hover:text-gioia-yellow-dark transition-colors">
+        {title}
+      </h3>
+      <p class="text-gray-600 text-sm leading-relaxed line-clamp-3">{excerpt}</p>
+      <p class="text-gioia-yellow-dark font-semibold text-sm mt-3">Leggi tutto →</p>
+    </div>
+  </a>
+</article>

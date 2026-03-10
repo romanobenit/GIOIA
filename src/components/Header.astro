@@ -1,0 +1,108 @@
+---
+const navLinks = [
+  { href: '/', label: 'Home' },
+  { href: '/chi-siamo', label: 'Chi Siamo' },
+  { href: '/attivita', label: 'Attività' },
+  { href: '/blog', label: 'Blog' },
+  { href: '/contatti', label: 'Contatti' },
+];
+
+const currentPath = Astro.url.pathname;
+---
+
+<header class="bg-white shadow-sm sticky top-0 z-50">
+  <div class="max-w-6xl mx-auto px-4">
+    <div class="flex items-center justify-between h-16">
+      <!-- Logo -->
+      <a href="/" class="flex items-center gap-2" aria-label="GIO.I.A – Torna alla home">
+        <span class="text-2xl font-black text-gioia-yellow-dark tracking-tight">GIO.I.A</span>
+      </a>
+
+      <!-- Desktop nav -->
+      <nav aria-label="Navigazione principale" class="hidden md:flex items-center gap-6">
+        {navLinks.map((link) => (
+          <a
+            href={link.href}
+            class:list={[
+              'font-semibold text-sm transition-colors duration-200',
+              currentPath === link.href
+                ? 'text-gioia-yellow-dark border-b-2 border-gioia-yellow'
+                : 'text-gray-700 hover:text-gioia-yellow-dark',
+            ]}
+            aria-current={currentPath === link.href ? 'page' : undefined}
+          >
+            {link.label}
+          </a>
+        ))}
+        <a href="/donazioni" class="btn-primary text-sm py-2 px-4">
+          Sostienici
+        </a>
+      </nav>
+
+      <!-- Mobile hamburger button -->
+      <button
+        id="menu-toggle"
+        class="md:hidden flex flex-col justify-center gap-1.5 w-8 h-8 p-1"
+        aria-label="Apri menu di navigazione"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+      >
+        <span class="block w-full h-0.5 bg-gray-700 transition-all duration-200" id="bar1"></span>
+        <span class="block w-full h-0.5 bg-gray-700 transition-all duration-200" id="bar2"></span>
+        <span class="block w-full h-0.5 bg-gray-700 transition-all duration-200" id="bar3"></span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile menu -->
+  <nav
+    id="mobile-menu"
+    class="md:hidden hidden bg-white border-t border-gray-100 px-4 pb-4"
+    aria-label="Navigazione mobile"
+  >
+    {navLinks.map((link) => (
+      <a
+        href={link.href}
+        class:list={[
+          'block py-3 font-semibold border-b border-gray-100 transition-colors duration-200',
+          currentPath === link.href
+            ? 'text-gioia-yellow-dark'
+            : 'text-gray-700 hover:text-gioia-yellow-dark',
+        ]}
+        aria-current={currentPath === link.href ? 'page' : undefined}
+      >
+        {link.label}
+      </a>
+    ))}
+    <a href="/donazioni" class="btn-primary text-sm mt-4 text-center block">
+      Sostienici
+    </a>
+  </nav>
+</header>
+
+<script>
+  const toggle = document.getElementById('menu-toggle');
+  const menu = document.getElementById('mobile-menu');
+  const bar1 = document.getElementById('bar1');
+  const bar2 = document.getElementById('bar2');
+  const bar3 = document.getElementById('bar3');
+
+  toggle?.addEventListener('click', () => {
+    const isOpen = menu?.classList.toggle('hidden') === false;
+    toggle.setAttribute('aria-expanded', String(!isOpen === false ? 'true' : 'false'));
+    // Correct: isOpen means menu is now visible
+    const open = !menu?.classList.contains('hidden');
+    toggle.setAttribute('aria-expanded', String(open));
+    toggle.setAttribute('aria-label', open ? 'Chiudi menu' : 'Apri menu di navigazione');
+
+    if (open) {
+      bar1?.classList.add('rotate-45', 'translate-y-2');
+      bar2?.classList.add('opacity-0');
+      bar3?.classList.add('-rotate-45', '-translate-y-2');
+    } else {
+      bar1?.classList.remove('rotate-45', 'translate-y-2');
+      bar2?.classList.remove('opacity-0');
+      bar3?.classList.remove('-rotate-45', '-translate-y-2');
+    }
+  });
+</script>

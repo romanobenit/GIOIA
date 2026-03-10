@@ -1,0 +1,110 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ActivityCard from '../components/ActivityCard.astro';
+---
+
+<Layout title="Home" description="GIO.I.A – Insieme, con gioia. APS per l'inclusione lavorativa e le attività socio-ricreative.">
+  <!-- Hero -->
+  <section class="bg-gradient-to-br from-amber-50 via-white to-emerald-50 py-20 px-4">
+    <div class="max-w-4xl mx-auto text-center">
+      <h1 class="font-black text-gioia-yellow-dark mb-4">
+        GIO.I.A
+      </h1>
+      <p class="text-2xl md:text-3xl font-bold text-gray-700 mb-6">
+        Insieme, con gioia.
+      </p>
+      <p class="text-lg text-gray-600 max-w-2xl mx-auto mb-10 leading-relaxed">
+        Siamo un'associazione di promozione sociale che supporta adulti con
+        disabilità intellettiva lieve nel mondo del lavoro e nella vita sociale,
+        con entusiasmo e calore umano.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/attivita" class="btn-primary text-base">
+          Scopri le attività
+        </a>
+        <a href="/donazioni" class="btn-secondary text-base">
+          Sostienici
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- About snippet -->
+  <section class="section">
+    <div class="grid md:grid-cols-2 gap-12 items-center">
+      <div>
+        <h2 class="text-gioia-yellow-dark mb-4">Chi siamo</h2>
+        <p class="text-gray-600 leading-relaxed mb-4">
+          GIO.I.A è un'APS (Associazione di Promozione Sociale) nata con
+          l'obiettivo di creare opportunità concrete per gli adulti con
+          disabilità intellettiva lieve: percorsi lavorativi, laboratori
+          creativi, uscite sociali e tanto altro.
+        </p>
+        <p class="text-gray-600 leading-relaxed mb-6">
+          Crediamo che ogni persona abbia risorse preziose da esprimere e
+          che il contesto giusto faccia la differenza.
+        </p>
+        <a href="/chi-siamo" class="btn-outline">
+          Scopri la nostra storia
+        </a>
+      </div>
+      <div class="bg-amber-50 rounded-2xl p-8 text-center">
+        <p class="text-6xl mb-4" aria-hidden="true">🌱</p>
+        <p class="text-xl font-bold text-gray-800 mb-2">Crescita e inclusione</p>
+        <p class="text-gray-600">
+          Ogni passo avanti è una vittoria condivisa, celebrata insieme
+          dalla nostra comunità.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Activities preview -->
+  <section class="bg-gray-50 py-16 px-4">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-center text-gray-900 mb-4">Le nostre attività</h2>
+      <p class="text-center text-gray-600 mb-10 max-w-xl mx-auto">
+        Dall'orientamento lavorativo alle uscite di gruppo: tante opportunità
+        per crescere, divertirsi e stare insieme.
+      </p>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <ActivityCard
+          title="Tirocini formativi"
+          description="Percorsi personalizzati in aziende partner per acquisire competenze e autonomia lavorativa."
+          icon="🏢"
+          category="lavorativa"
+        />
+        <ActivityCard
+          title="Laboratori creativi"
+          description="Attività artistiche, manuali e musicali per esprimere talenti e favorire il benessere."
+          icon="🎨"
+          category="ricreativa"
+        />
+        <ActivityCard
+          title="Uscite ed eventi"
+          description="Gite, cinema, sport e occasioni sociali per costruire relazioni e vivere la città."
+          icon="🎉"
+          category="ricreativa"
+        />
+      </div>
+      <div class="text-center mt-10">
+        <a href="/attivita" class="btn-primary">Vedi tutte le attività</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA donation -->
+  <section class="bg-gioia-yellow py-16 px-4 text-white text-center">
+    <div class="max-w-2xl mx-auto">
+      <p class="text-4xl mb-4" aria-hidden="true">💛</p>
+      <h2 class="text-white mb-4">Vuoi fare la differenza?</h2>
+      <p class="text-amber-100 text-lg mb-8 leading-relaxed">
+        Con il tuo supporto possiamo continuare a offrire opportunità
+        preziose e costruire una comunità più inclusiva.
+      </p>
+      <a href="/donazioni" class="inline-block bg-white text-gioia-yellow-dark font-bold py-3 px-8 rounded-full hover:bg-amber-50 transition-colors">
+        Come sostenerci
+      </a>
+    </div>
+  </section>
+</Layout>
