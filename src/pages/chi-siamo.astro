@@ -19,11 +19,24 @@ import Layout from '../layouts/Layout.astro';
     <div class="grid md:grid-cols-2 gap-12 items-center">
       <div>
         <h2 class="text-gray-900 mb-4">La nostra missione</h2>
-        <p class="text-gray-600 leading-relaxed mb-4">
+        <p class="text-gray-600 leading-relaxed mb-3">
           GIO.I.A è un'Associazione di Promozione Sociale (APS) che opera a favore
-          di adulti con disabilità intellettiva lieve, con l'obiettivo di promuovere
-          la loro inclusione nel mondo del lavoro e nella vita sociale.
+          di adulti con disabilità intellettiva lieve, con l'obiettivo di:
         </p>
+        <!-- Puntini verdi – contenuto dalla foto [DA COMPILARE con i punti reali] -->
+        <ul class="mb-4 space-y-2">
+          {[
+            '[DA COMPILARE – punto 1]',
+            '[DA COMPILARE – punto 2]',
+            '[DA COMPILARE – punto 3]',
+            '[DA COMPILARE – punto 4]',
+          ].map((punto) => (
+            <li class="flex items-start gap-2 text-gray-600 leading-relaxed">
+              <span class="mt-1.5 w-2.5 h-2.5 rounded-full bg-emerald-500 flex-shrink-0" aria-hidden="true"></span>
+              <span>{punto}</span>
+            </li>
+          ))}
+        </ul>
         <p class="text-gray-600 leading-relaxed mb-4">
           Attraverso percorsi individualizzati, attività di gruppo e collaborazioni
           con realtà del territorio, costruiamo opportunità concrete e relazioni

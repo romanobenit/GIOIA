@@ -2,29 +2,20 @@
 import Layout from '../layouts/Layout.astro';
 import ActivityCard from '../components/ActivityCard.astro';
 
+// "Tirocini formativi" e "Formazione pratica" sono stati rimossi.
+// "Accompagnamento al lavoro" e "Laboratorio di orientamento" sono al condizionale
+// in quanto obiettivi/missioni future.
 const activitiesLavorativa = [
   {
-    title: 'Tirocini formativi',
+    title: 'Laboratorio di orientamento',
     description:
-      'Percorsi personalizzati in aziende partner del territorio per acquisire competenze pratiche e abitudini lavorative in un contesto reale e supportato.',
-    icon: '🏢',
-  },
-  {
-    title: 'Laboratori di orientamento',
-    description:
-      'Sessioni di gruppo per esplorare interessi, scoprire punti di forza e costruire un progetto professionale su misura.',
+      'Vorremmo sviluppare sessioni di gruppo per esplorare interessi, scoprire punti di forza e costruire un progetto professionale su misura — una delle nostre priorità future.',
     icon: '🧭',
-  },
-  {
-    title: 'Formazione pratica',
-    description:
-      'Workshop su competenze trasversali: puntualità, comunicazione, gestione del tempo, utilizzo base del computer.',
-    icon: '📚',
   },
   {
     title: 'Accompagnamento al lavoro',
     description:
-      'Supporto individuale nelle prime fasi lavorative: affiancamento in azienda, monitoraggio e mediazione con i datori di lavoro.',
+      'Potremmo offrire supporto individuale nelle prime fasi lavorative: affiancamento in azienda, monitoraggio e mediazione con i datori di lavoro — quando le condizioni normative lo consentiranno.',
     icon: '🤝',
   },
 ];
@@ -75,12 +66,42 @@ const activitiesRicreativa = [
       <span class="text-3xl" aria-hidden="true">💼</span>
       <h2 class="text-gray-900">Inclusione lavorativa</h2>
     </div>
-    <p class="text-gray-600 mb-8 max-w-2xl leading-relaxed">
-      Crediamo che il lavoro sia un potente strumento di autonomia e dignità.
-      Offriamo percorsi concreti per avvicinarsi al mondo del lavoro, con il
-      giusto supporto in ogni fase.
-    </p>
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+
+    <!-- Testo introduttivo aggiornato -->
+    <div class="mb-8 max-w-2xl space-y-4">
+      <p class="text-gray-600 leading-relaxed">
+        Crediamo che il lavoro sia un potente strumento di autonomia e dignità.
+        <strong class="text-gray-800">Autodeterminazione.</strong>
+      </p>
+
+      <p class="text-gray-700 leading-relaxed font-medium">
+        Lo scopo che ci accomuna è sensibilizzare e accendere un faro sulle leggi in vigore,
+        il cui <strong>METODO</strong> per l'inserimento lavorativo risulta essere
+        <strong>INIQUO e frustrante</strong> per le persone con disabilità intellettiva,
+        seppur con grande volontà e capacità lavorativa.
+      </p>
+
+      <!-- Puntini verdi – contenuto dalla foto [DA COMPILARE con i punti reali] -->
+      <ul class="space-y-2 pt-1">
+        {[
+          '[DA COMPILARE – punto 1]',
+          '[DA COMPILARE – punto 2]',
+          '[DA COMPILARE – punto 3]',
+          '[DA COMPILARE – punto 4]',
+        ].map((punto) => (
+          <li class="flex items-start gap-2 text-gray-600 leading-relaxed">
+            <span class="mt-1.5 w-2.5 h-2.5 rounded-full bg-emerald-500 flex-shrink-0" aria-hidden="true"></span>
+            <span>{punto}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+
+    <!-- Attività al condizionale (missioni future) -->
+    <div class="mb-3">
+      <p class="text-sm font-semibold text-amber-700 uppercase tracking-wide">Missioni future</p>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-2xl">
       {activitiesLavorativa.map((a) => (
         <ActivityCard title={a.title} description={a.description} icon={a.icon} category="lavorativa" />
       ))}
