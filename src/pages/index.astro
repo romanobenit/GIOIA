@@ -5,8 +5,48 @@ import ActivityCard from '../components/ActivityCard.astro';
 
 <Layout title="Home" description="GIO.I.A – Insieme, con gioia. APS per l'inclusione lavorativa e le attività socio-ricreative.">
   <!-- Hero -->
-  <section class="bg-gradient-to-br from-amber-50 via-white to-emerald-50 py-20 px-4">
-    <div class="max-w-4xl mx-auto text-center">
+  <section class="relative bg-gradient-to-br from-amber-50 via-white to-emerald-50 py-20 px-4 overflow-hidden">
+
+    <!-- Simbolo/logo associazione in sottofondo (watermark) -->
+    <!-- Sostituire con <img> quando disponibile il logo ufficiale -->
+    <div class="absolute inset-0 flex items-center justify-center pointer-events-none select-none" aria-hidden="true">
+      <span class="text-[22rem] font-black text-amber-300 opacity-10 leading-none tracking-tighter">G</span>
+    </div>
+
+    <!-- QR code – in alto a destra -->
+    <div class="absolute top-4 right-4 z-10">
+      <div class="w-24 h-24 bg-white border-2 border-gray-200 rounded-xl shadow-md flex flex-col items-center justify-center gap-1 p-2">
+        <!-- Sostituire con <img src="/images/qr-code.png" alt="QR code GIO.I.A" class="w-full h-full object-contain" /> quando disponibile -->
+        <svg viewBox="0 0 60 60" class="w-14 h-14 opacity-30" aria-hidden="true">
+          <rect x="2" y="2" width="24" height="24" fill="none" stroke="currentColor" stroke-width="3"/>
+          <rect x="8" y="8" width="12" height="12" fill="currentColor"/>
+          <rect x="34" y="2" width="24" height="24" fill="none" stroke="currentColor" stroke-width="3"/>
+          <rect x="40" y="8" width="12" height="12" fill="currentColor"/>
+          <rect x="2" y="34" width="24" height="24" fill="none" stroke="currentColor" stroke-width="3"/>
+          <rect x="8" y="40" width="12" height="12" fill="currentColor"/>
+          <rect x="34" y="34" width="6" height="6" fill="currentColor"/>
+          <rect x="44" y="34" width="6" height="6" fill="currentColor"/>
+          <rect x="34" y="44" width="6" height="6" fill="currentColor"/>
+          <rect x="44" y="44" width="6" height="6" fill="currentColor"/>
+          <rect x="54" y="34" width="6" height="6" fill="currentColor"/>
+          <rect x="34" y="54" width="6" height="6" fill="currentColor"/>
+          <rect x="54" y="54" width="6" height="6" fill="currentColor"/>
+        </svg>
+        <span class="text-[9px] text-gray-400 font-semibold text-center leading-tight">[DA COMPILARE]</span>
+      </div>
+    </div>
+
+    <!-- Contenuto principale -->
+    <div class="max-w-4xl mx-auto text-center relative z-10">
+
+      <!-- Emblema associazione in alto al centro -->
+      <div class="flex justify-center mb-6" aria-hidden="true">
+        <!-- Sostituire con <img src="/images/logo.svg" alt="Logo GIO.I.A" class="h-24" /> quando disponibile il logo ufficiale -->
+        <div class="w-24 h-24 rounded-full bg-gradient-to-br from-amber-400 to-amber-500 shadow-lg flex items-center justify-center ring-4 ring-amber-200">
+          <span class="text-white font-black text-lg leading-tight text-center">GIO<br/>.I.A</span>
+        </div>
+      </div>
+
       <h1 class="font-black text-gioia-yellow-dark mb-4">
         GIO.I.A
       </h1>
@@ -67,13 +107,7 @@ import ActivityCard from '../components/ActivityCard.astro';
         Dall'orientamento lavorativo alle uscite di gruppo: tante opportunità
         per crescere, divertirsi e stare insieme.
       </p>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        <ActivityCard
-          title="Tirocini formativi"
-          description="Percorsi personalizzati in aziende partner per acquisire competenze e autonomia lavorativa."
-          icon="🏢"
-          category="lavorativa"
-        />
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-2xl mx-auto">
         <ActivityCard
           title="Laboratori creativi"
           description="Attività artistiche, manuali e musicali per esprimere talenti e favorire il benessere."
