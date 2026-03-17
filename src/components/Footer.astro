@@ -1,23 +1,45 @@
 ---
 const year = new Date().getFullYear();
 
-const FACEBOOK_URL = '[DA COMPILARE]';
+const FACEBOOK_URL  = '[DA COMPILARE]';
 const INSTAGRAM_URL = '[DA COMPILARE]';
+const EMAIL         = 'gioia-aps@libero.it';
+const CELLULARE_1   = '371 517 6801';
+const CELLULARE_2   = '334 280 4113';
+const CODICE_FISCALE = '90155170567';
 ---
 
 <footer class="bg-gray-900 text-gray-300 mt-16">
   <div class="max-w-6xl mx-auto px-4 py-12">
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-      <!-- Brand column -->
+
+      <!-- Brand + contatti -->
       <div>
         <p class="text-2xl font-black text-white tracking-tight mb-2">GIO.I.A</p>
-        <p class="text-sm text-gray-400 leading-relaxed">
+        <p class="text-sm text-gray-400 leading-relaxed mb-4">
           Associazione di Promozione Sociale per l'inclusione lavorativa e le
           attività socio-ricreative.
         </p>
+        <ul class="space-y-1.5 text-sm text-gray-400">
+          <li>
+            <a href={`mailto:${EMAIL}`} class="hover:text-gioia-yellow transition-colors">
+              ✉️ {EMAIL}
+            </a>
+          </li>
+          <li>
+            <a href={`tel:+39${CELLULARE_1.replace(/\s/g,'')}`} class="hover:text-gioia-yellow transition-colors">
+              📱 {CELLULARE_1}
+            </a>
+          </li>
+          <li>
+            <a href={`tel:+39${CELLULARE_2.replace(/\s/g,'')}`} class="hover:text-gioia-yellow transition-colors">
+              📱 {CELLULARE_2}
+            </a>
+          </li>
+        </ul>
       </div>
 
-      <!-- Navigation column -->
+      <!-- Navigation -->
       <nav aria-label="Link rapidi footer">
         <p class="font-bold text-white mb-3 uppercase text-xs tracking-wider">Esplora</p>
         <ul class="space-y-2 text-sm">
@@ -30,7 +52,7 @@ const INSTAGRAM_URL = '[DA COMPILARE]';
         </ul>
       </nav>
 
-      <!-- Social & legal column -->
+      <!-- Social & legal -->
       <div>
         <p class="font-bold text-white mb-3 uppercase text-xs tracking-wider">Seguici</p>
         <div class="flex gap-4 mb-6">
@@ -61,8 +83,8 @@ const INSTAGRAM_URL = '[DA COMPILARE]';
           )}
         </div>
         <div class="text-xs text-gray-500 space-y-1">
-          <p>C.F.: <span>[DA COMPILARE]</span></p>
-          <p>P.IVA: <span>[DA COMPILARE]</span></p>
+          <p>C.F.: <span class="font-mono">{CODICE_FISCALE}</span></p>
+          <p class="text-gray-600 italic">P.IVA: [DA COMPILARE]</p>
           <a href="/privacy" class="hover:text-gray-300 transition-colors">Privacy Policy</a>
         </div>
       </div>
