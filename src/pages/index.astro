@@ -7,10 +7,13 @@ import ActivityCard from '../components/ActivityCard.astro';
   <!-- Hero -->
   <section class="relative bg-gradient-to-br from-amber-50 via-white to-emerald-50 py-20 px-4 overflow-hidden">
 
-    <!-- Simbolo/logo associazione in sottofondo (watermark) -->
-    <!-- Sostituire con <img> quando disponibile il logo ufficiale -->
+    <!-- Logo associazione in sottofondo (watermark) -->
     <div class="absolute inset-0 flex items-center justify-center pointer-events-none select-none" aria-hidden="true">
-      <span class="text-[22rem] font-black text-amber-300 opacity-10 leading-none tracking-tighter">G</span>
+      <img
+        src="/images/logo.png"
+        alt=""
+        class="w-[28rem] max-w-full opacity-[0.06] object-contain"
+      />
     </div>
 
     <!-- QR code – in alto a destra -->
@@ -39,12 +42,15 @@ import ActivityCard from '../components/ActivityCard.astro';
     <!-- Contenuto principale -->
     <div class="max-w-4xl mx-auto text-center relative z-10">
 
-      <!-- Emblema associazione in alto al centro -->
-      <div class="flex justify-center mb-6" aria-hidden="true">
-        <!-- Sostituire con <img src="/images/logo.svg" alt="Logo GIO.I.A" class="h-24" /> quando disponibile il logo ufficiale -->
-        <div class="w-24 h-24 rounded-full bg-gradient-to-br from-amber-400 to-amber-500 shadow-lg flex items-center justify-center ring-4 ring-amber-200">
-          <span class="text-white font-black text-lg leading-tight text-center">GIO<br/>.I.A</span>
-        </div>
+      <!-- Logo associazione in alto al centro -->
+      <div class="flex justify-center mb-6">
+        <img
+          src="/images/logo.png"
+          alt="GIO.I.A APS"
+          class="h-40 md:h-48 w-auto object-contain drop-shadow-md"
+          width="320"
+          height="192"
+        />
       </div>
 
       <h1 class="font-black text-gioia-yellow-dark mb-4">
